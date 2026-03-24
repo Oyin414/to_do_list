@@ -8,10 +8,10 @@ function addProject(name){
     projects.push(newProject)
 }
 
-function removeProject(item){
- let remainingProjects =  projects.filter(project => project.id !== item.id)
- projects = remainingProjects
 
+function removeProject(dataId){
+ let remainingProjects =  projects.filter(project =>  project.id !== dataId)
+ projects = remainingProjects
 }
 
 function getProject(){

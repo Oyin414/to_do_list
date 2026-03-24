@@ -12,5 +12,7 @@ const item4 = new ListItems("work","high","20/04/2027")
 addProject("Big foot")
 addProject("little foot")
 addProject("medium foot")
+addProject("Big foot")
+
 
 getProject()
