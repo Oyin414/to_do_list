@@ -13,7 +13,7 @@
 
 .sidebar {
   height: 100vh; 
-  width: 20vw; 
+  width: 25vw; 
   background-color: #c94770; 
   padding-top: 20px;
   display: flex;
@@ -44,6 +44,9 @@
      opacity: 0.3;
      width: 10vw;
      font-size: 1rem;
+    /* position: fixed;
+     bottom: 23px;
+     left : 10px; */
 }
 
 .project_button:hover{
@@ -63,6 +66,7 @@
     width: 40vw;
     opacity: 0.3;
     font-size: 1.4rem;
+   
 }
 
 .task_button:hover{
@@ -71,10 +75,39 @@
 }
 
 .main {
-  width: 80vw;
+  width: 75vw;
   height: 100vh; 
 background-color: #DD7596;
 display: flex;
 flex-direction: column;
 }
 
+/* Styling the forms*/
+
+.project_form{
+    display: none;
+    margin: 10px auto;
+    border: 3px solid rgb(148, 82, 129);
+}
+
+.formContainer {
+  width: 20vw;
+  height: 30vh;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background-color: rgb(247, 229, 241);
+  text-align: center;
+}
+
+.formContainer label{
+    font-size: 1.1rem;
+    text-align: left;
+}
+
+.formContainer input[type=text]{
+    width :100%;
+    padding: 0.6rem;
+    font-size: 1rem;
+}

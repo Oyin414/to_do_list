@@ -2,6 +2,7 @@ import "./styles.css";
 import { ListItems } from "./create/list.js";
 import { Project } from "./create/project.js";
 import { addProject,removeProject,getProject } from "./data/project_manager.js";
+import { setUpForms } from "./user_interaction/logic.js";
 
 const item = new ListItems("gym","medium","20/01/2027")
 const item2 = new ListItems("home","medium","20/02/2027")
@@ -14,5 +15,5 @@ addProject("little foot")
 addProject("medium foot")
 addProject("Big foot")
 
-
+setUpForms()
 getProject()
