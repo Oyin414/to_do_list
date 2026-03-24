@@ -1,0 +1,80 @@
+*{
+    padding:0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.container{
+    display: flex;
+     min-height: 100vh;
+     min-width: 100vw;
+}
+
+
+.sidebar {
+  height: 100vh; 
+  width: 20vw; 
+  background-color: #2b9dac; 
+  padding-top: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+
+
+.sidebar_title{
+    padding: 20px;
+    margin: 10px;
+    text-align: center;
+    background-color: #DD7596;
+}
+
+.main_title{
+    font-size: 20px;
+}
+
+.add{
+    padding: 10px;
+    margin: 10px auto;
+
+}
+
+.project_button{
+    padding: 10px;
+     opacity: 0.3;
+     width: 10vw;
+     font-size: 1rem;
+}
+
+.project_button:hover{
+     cursor: pointer;
+    opacity: 0.7;
+}
+
+.main_title{
+    font-size: 3rem;
+    margin: 35px;
+   
+}
+
+
+.task_button{
+    padding: 10px;
+    width: 40vw;
+    opacity: 0.3;
+    font-size: 1.4rem;
+}
+
+.task_button:hover{
+    cursor: pointer;
+    opacity: 0.7;
+}
+
+.main {
+  width: 80vw;
+  height: 100vh; 
+background-color: #DD7596;
+display: flex;
+flex-direction: column;
+}
+
