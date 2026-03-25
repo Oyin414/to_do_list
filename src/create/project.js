@@ -1,10 +1,10 @@
-import { ListItems } from "./list.js"
+
 
 
 class Project {
-    constructor(title){
+    constructor(title,id){
         this.title = title
-        this.id = crypto.randomUUID()
+        this.id = id
         this.list = []
     }
     addListItem(item){

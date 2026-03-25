@@ -3,8 +3,8 @@ import { Project } from "../create/project.js"
 let projects = []
 
 
-function addProject(name){
-    const newProject = new Project(name)
+function addProject(name,id){
+    const newProject = new Project(name,id)
     projects.push(newProject)
 }
 
@@ -14,9 +14,7 @@ function removeProject(dataId){
  projects = remainingProjects
 }
 
-function getProject(){
-    console.log(projects)
-}
+const getProject = () => projects;
 
 export{addProject,removeProject,getProject}
 

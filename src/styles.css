@@ -108,7 +108,7 @@ flex-direction: column;
 
 .formContainer input[type=text]{
     width :100%;
-    padding: 0.6rem;
+    padding: 0.4rem;
     font-size: 1rem;
 }
 
@@ -148,4 +148,32 @@ flex-direction: column;
 .formListContainer div{
     width: 30%;
     margin: 10px auto;
+    display: flex;
+    gap: 10px;
+}
+
+/* Styling the project and list divs*/
+
+.side{
+    width: 25vw;
+    height: 80vw;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+
+.project{
+    background-color: #DD7596;
+    padding: 10px;
+    margin: 5px 10px;
+    width: 20vw;
+    font-size: 18px;
+}
+
+.project:hover{
+    cursor: pointer;
+    opacity: 0.7;
 }
