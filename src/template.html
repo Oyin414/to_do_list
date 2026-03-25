@@ -32,10 +32,32 @@
     <div class="main">
         <h1 class="main_title">Default</h1>
         <div class="content">
-            
+            <div class="task_form" id="form">
+                <form action="" class="formListContainer">
+                     <h1>Add Task</h1>
+                    <label for="task">Task Title:</label>
+                    <input type="text" id="task" name="task" required>
+                    <label for="date">Due Date:</label>
+                    <input type="date" id="date" name="date" required>
+                    <label for="priority">priority:</label>
+                    <select name="priority" id="priority">
+                        <option value="low">Low</option>
+                        <option value="medium">Medium</option>
+                        <option value="high">High</option>
+                    </select>
+                    <label for="info">Description:</label>
+                    <textarea name="info" id="info" rows="5"></textarea>
+                    <div>
+                        <button type="submit" class="taskBtn">Add Task</button>
+                        <button type="button" class="task_cancel">Close</button>
+                    </div>
+                    
+                </form>
+            </div>
         </div>
         <div class="add"> 
-            <button class="task_button">+ Add New task</button></div>
+            <button class="task_button">+ Add New task</button>
+        </div>
     </div>
     </div>
    

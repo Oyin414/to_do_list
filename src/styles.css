@@ -111,3 +111,41 @@ flex-direction: column;
     padding: 0.6rem;
     font-size: 1rem;
 }
+
+.task_form{
+    display: none;
+    margin: 10px 20vw;
+   
+}
+
+.formListContainer{
+  width: 30vw;
+  height: 60vh;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background-color: rgb(247, 229, 241);
+  text-align: center;
+}
+
+.formListContainer label{
+    font-size: 1.3rem;
+    text-align: left;
+}
+
+
+.formListContainer input{
+    width :100%;
+    padding: 0.6rem;
+    font-size: 1rem;
+}
+
+.formListContainer button{
+    padding: 5px;
+}
+
+.formListContainer div{
+    width: 30%;
+    margin: 10px auto;
+}
