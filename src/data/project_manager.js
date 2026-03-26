@@ -3,9 +3,8 @@ import { Project } from "../create/project.js"
 let projects = []
 
 
-function addProject(name,id){
-    const newProject = new Project(name,id)
-    projects.push(newProject)
+function addProject(item){
+    projects.push(item)
 }
 
 

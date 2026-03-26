@@ -9,6 +9,7 @@ class Project {
     }
     addListItem(item){
     this.list.push(item)
+    console.log(this.list)
     }
     findListItem(id){
     const result =  this.list.filter(item => item.id === id)

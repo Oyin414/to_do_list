@@ -33,7 +33,7 @@
     font-size: 20px;
 }
 
-.add{
+.add,.hide{
     padding: 10px;
     margin: 10px auto;
 
@@ -80,6 +80,10 @@
 background-color: #DD7596;
 display: flex;
 flex-direction: column;
+}
+
+.hide{
+    display: none;
 }
 
 /* Styling the forms*/
@@ -164,13 +168,22 @@ flex-direction: column;
     gap: 5px;
 }
 
-
-.project{
-    background-color: #DD7596;
+.overview{
+ background-color: #DD7596;
     padding: 10px;
     margin: 5px 10px;
     width: 20vw;
-    font-size: 18px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.project{
+    font-size: 20px;
+    line-height: 2;
+}
+
+.del{
+    padding: 5px;
 }
 
 .project:hover{
