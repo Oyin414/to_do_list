@@ -1,4 +1,4 @@
-import { makeProject } from "./display.js"
+import { makeProject,makeTask,changeProject} from "./display.js"
 import {addProject,removeProject,getProject} from "../data/project_manager.js"
 import { ListItems } from "../create/list.js"
 import { Project } from "../create/project.js"
@@ -42,12 +42,28 @@ function addProj(e){
   console.log(getProject())
 }
 
+function addTask(e){
+   e.preventDefault();
+   let name = document.getElementById("task").value
+   let priority = document.getElementById("priority").value
+   let date = document.getElementById("date").value
+   let id = crypto.randomUUID()
+   let info = document.getElementById("info").value
+   let task = new ListItems(name,priority,date,info,id)
+   
+   
+   makeTask(name,date)
+}
+
 function submitForm() {
   let projectBtn = document.querySelector(".btn")
   let taskBtn = document.querySelector(".taskBtn")
 
 projectBtn.addEventListener("click",function() {
   addProj(event)
+})
+taskBtn.addEventListener("click",function(){
+  addTask(event)
 })
 }
 

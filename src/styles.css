@@ -177,3 +177,45 @@ flex-direction: column;
     cursor: pointer;
     opacity: 0.7;
 }
+
+.biggest{
+  width : 50vw;
+  height :10vh;
+  border :1px solid black;
+  display:flex;
+  justify-content:space-between;
+  line-height:4;
+  font-size:18px;
+  background-color: #c94770;
+  margin-left: 15px;
+}
+
+.biggest:hover{
+  cursor:pointer;
+  opacity:0.8;
+}
+
+.first,.second{
+  display:flex;
+  gap:5vw;
+}
+
+.first{
+  gap:1vw;
+  margin-left: 10px;
+}
+
+
+.delete{
+  border-radius:10px;
+  height:15vh;
+  width:2vw;
+}
+
+.delete_btn{
+    padding: 8px;
+}
+
+.delete_btn:hover{
+  cursor:pointer;
+}
