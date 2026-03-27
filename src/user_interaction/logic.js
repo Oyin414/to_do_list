@@ -1,9 +1,10 @@
 import { makeProject,makeTask,changeProject,defaultScreen} from "./display.js"
-import {addProject,removeProject,getProject} from "../data/project_manager.js"
+import {addProject,removeProject,getProject,findProject} from "../data/project_manager.js"
 import { ListItems } from "../create/list.js"
 import { Project } from "../create/project.js"
 
 /* Project form pop up */
+let project;
 
 function setUpForms() {
 const project = document.querySelector(".project_button")
@@ -45,6 +46,8 @@ cancelTask.addEventListener("click",()=>{
 */
 
 
+
+
 /*function addProj(e){
   e.preventDefault();
   document.getElementById("myForm").style.display = "none";
@@ -69,11 +72,20 @@ projectBtn.addEventListener("click",function() {
   addProject(newProject)
  console.log(id)
   console.log(getProject())
-
-   let overview = document.querySelector('.overview')
-   overview.addEventListener("click",function(){
+  project = getProject()
+  let overview = document.querySelectorAll(".overview")
+  overview.forEach(item=> item.addEventListener("click",function(){
+     document.querySelector('.hide').style.display = "block";
+     let dataId = item.getAttribute("data-id")
+    let result = findProject(dataId)
+  changeProject(result.title)
+  }))
+   
+  })
+   
+  
+  /* overview.addEventListener("click",function(){
     document.querySelector('.hide').style.display = "block";
-    changeProject(projectName)
     taskBtn.addEventListener("click",function(){
     event.preventDefault();
    let name = document.getElementById("task").value
@@ -82,11 +94,14 @@ projectBtn.addEventListener("click",function() {
    let id = crypto.randomUUID()
    let info = document.getElementById("info").value
    let task = new ListItems(name,priority,date,info,id)
-   newProject.addListItem(task)
+   //newProject.addListItem(task)
 })
 
    })
-})
+    
+  */
+
+
 }
 
 function taskInteractions() {

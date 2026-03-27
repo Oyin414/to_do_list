@@ -61,7 +61,6 @@ function defaultScreen() {
 
 function changeProject(name){
   let mainTitle = document.querySelector(".main_title")
-  
  mainTitle.textContent = name
 }
 

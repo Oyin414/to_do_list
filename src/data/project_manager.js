@@ -7,6 +7,10 @@ function addProject(item){
     projects.push(item)
 }
 
+function findProject(id){
+ const result = projects.find(element => element.id === id)
+ return result
+}
 
 function removeProject(dataId){
  let remainingProjects =  projects.filter(project =>  project.id !== dataId)
@@ -15,5 +19,5 @@ function removeProject(dataId){
 
 const getProject = () => projects;
 
-export{addProject,removeProject,getProject}
+export{addProject,removeProject,getProject,findProject}
 
