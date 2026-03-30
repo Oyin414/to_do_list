@@ -1,5 +1,6 @@
 import { compareAsc, format } from "date-fns";
 
+/*List Item */
 class ListItems {
     constructor(title,priority,dues,info,id){
         this.title = title

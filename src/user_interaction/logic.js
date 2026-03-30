@@ -33,7 +33,7 @@ cancelTask.addEventListener("click",()=>{
 /* add task to Project */
 
 /*function addTask(e){
-   e.preventDefault();
+   event.preventDefault();
    let name = document.getElementById("task").value
    let priority = document.getElementById("priority").value
    let date = document.getElementById("date").value
@@ -62,6 +62,7 @@ cancelTask.addEventListener("click",()=>{
 function submitForm() {
   let projectBtn = document.querySelector(".btn")
   let taskBtn = document.querySelector(".taskBtn")
+  let result
 
 projectBtn.addEventListener("click",function() {
    event.preventDefault();
@@ -71,35 +72,42 @@ projectBtn.addEventListener("click",function() {
   makeProject(projectName,id)
   addProject(newProject)
  console.log(id)
+
   console.log(getProject())
   project = getProject()
-  let overview = document.querySelectorAll(".overview")
-  overview.forEach(item=> item.addEventListener("click",function(){
-     document.querySelector('.hide').style.display = "block";
-     let dataId = item.getAttribute("data-id")
-    let result = findProject(dataId)
-  changeProject(result.title)
-  }))
-   
-  })
-   
+
+
+  for (let item of document.querySelectorAll(".overview:not(.initialized)")) {
+    item.addEventListener("click", function() {
+        document.querySelector('.hide').style.display = "block";
+        let dataId = item.getAttribute("data-id");
+        result = findProject(dataId);
+        console.log(result)
+        changeProject(result.title);
+        
+    });
+    item.classList.add("initialized");
   
-  /* overview.addEventListener("click",function(){
-    document.querySelector('.hide').style.display = "block";
-    taskBtn.addEventListener("click",function(){
+}
+  
+
+   })
+   
+    taskBtn.addEventListener("click",function (){
     event.preventDefault();
    let name = document.getElementById("task").value
    let priority = document.getElementById("priority").value
    let date = document.getElementById("date").value
-   let id = crypto.randomUUID()
+   let taskId = crypto.randomUUID()
    let info = document.getElementById("info").value
-   let task = new ListItems(name,priority,date,info,id)
-   //newProject.addListItem(task)
-})
-
-   })
-    
-  */
+   let task = new ListItems(name,priority,date,info,taskId)
+  
+   result.addListItem(task)
+   makeTask(name,date,taskId)
+   console.log(getProject())
+  })
+  
+  
 
 
 }
