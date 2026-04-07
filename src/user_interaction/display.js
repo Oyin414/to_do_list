@@ -62,6 +62,21 @@ function makeTask(name,data,id){
     content.appendChild(biggest)
 }
 
+function displayTasks(id) {
+  let projectId = id
+  let content = document.querySelector(".content")
+  let tasks = document.querySelectorAll(".biggest")
+
+  for (let i = 0; i < tasks.length; i++) {
+    let task = tasks[i].getAttribute("project-id")
+    if (projectId === task){
+      tasks[i].style.display = ""
+    }else{
+       tasks[i].style.display = "none"
+    }
+  }
+}
+
 
 
 function defaultScreen() {
@@ -75,4 +90,4 @@ function changeProject(name){
 }
 
 
-export {makeProject,makeTask,changeProject,defaultScreen}
+export {makeProject,makeTask,changeProject,defaultScreen,displayTasks}

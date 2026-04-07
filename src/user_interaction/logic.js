@@ -1,4 +1,4 @@
-import { makeProject,makeTask,changeProject,defaultScreen} from "./display.js"
+import { makeProject,makeTask,changeProject,defaultScreen,displayTasks} from "./display.js"
 import {addProject,removeProject,getProject,findProject} from "../data/project_manager.js"
 import { ListItems } from "../create/list.js"
 import { Project } from "../create/project.js"
@@ -59,6 +59,7 @@ projectBtn.addEventListener("click",function() {
         console.log(dataId)
         result = findProject(dataId);
         changeProject(result.title);
+        displayTasks(dataId)
         
         let section = item.hasChildNodes()
        console.log(result)
