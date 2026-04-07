@@ -30,86 +30,79 @@ cancelTask.addEventListener("click",()=>{
 
 }
 
-/* add task to Project */
-
-/*function addTask(e){
-   event.preventDefault();
-   let name = document.getElementById("task").value
-   let priority = document.getElementById("priority").value
-   let date = document.getElementById("date").value
-   let id = crypto.randomUUID()
-   let info = document.getElementById("info").value
-   let task = new ListItems(name,priority,date,info,id)
-   
-   makeTask(name,date,id)
-} 
-*/
-
-
-
-
-/*function addProj(e){
-  e.preventDefault();
-  document.getElementById("myForm").style.display = "none";
-  let projectName = document.getElementById("project").value
-  let id = crypto.randomUUID()
-  makeProject(projectName,id)
-  addProject(projectName,id)
- console.log(id)
-  console.log(getProject())
-}*/
-
 function submitForm() {
   let projectBtn = document.querySelector(".btn")
   let taskBtn = document.querySelector(".taskBtn")
   let result
 
+/* Create Projects */
+
 projectBtn.addEventListener("click",function() {
    event.preventDefault();
   let projectName = document.getElementById("project").value
   let id = crypto.randomUUID()
-   const newProject = new Project(projectName,id)
+  if(document.getElementById("project").validity.valueMissing){
+   alert("please enter Project Title")
+  }else{
+    const newProject = new Project(projectName,id)
   makeProject(projectName,id)
   addProject(newProject)
- console.log(id)
+  }
+   
 
-  console.log(getProject())
-  project = getProject()
-
+   /* Add tasks to each created project */
 
   for (let item of document.querySelectorAll(".overview:not(.initialized)")) {
     item.addEventListener("click", function() {
         document.querySelector('.hide').style.display = "block";
-        let dataId = item.getAttribute("data-id");
+        let dataId = item.getAttribute("project-id");
+        console.log(dataId)
         result = findProject(dataId);
-        console.log(result)
         changeProject(result.title);
         
+        let section = item.hasChildNodes()
+       console.log(result)
     });
     item.classList.add("initialized");
-  
 }
-  
-
    })
-   
+
+    /* Create Taska */
+
     taskBtn.addEventListener("click",function (){
     event.preventDefault();
    let name = document.getElementById("task").value
    let priority = document.getElementById("priority").value
    let date = document.getElementById("date").value
    let taskId = crypto.randomUUID()
-   let info = document.getElementById("info").value
-   let task = new ListItems(name,priority,date,info,taskId)
-  
-   result.addListItem(task)
+  let info = document.getElementById("info").value
+   let dateError = document.getElementById("date")
+   let taskError = document.getElementById("task")
+
+   if(dateError.validity.valueMissing && taskError.validity.valueMissing){
+    alert("Name and Date Missing")
+   }else if (dateError.validity.valueMissing){
+    alert("Please enter date")
+   }else if( taskError.validity.valueMissing){
+     alert("Please enter name")
+   }else{
+    let task = new ListItems(name,priority,date,info,taskId)
+       result.addListItem(task)
    makeTask(name,date,taskId)
+   
+   let biggest = document.querySelectorAll(".biggest")
+
+   biggest.forEach(item => {
+     if(item.hasAttribute('project-id') === false){
+        item.setAttribute('project-id',result.id)
+    }
+   
+   }
+  )
+   }
+
    console.log(getProject())
   })
-  
-  
-
-
 }
 
 function taskInteractions() {
@@ -121,6 +114,7 @@ function taskInteractions() {
 
   })
 }
+
 
 
 

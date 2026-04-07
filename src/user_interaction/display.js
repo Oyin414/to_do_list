@@ -12,7 +12,7 @@ function makeProject(name,id) {
   overview.appendChild(del)
   let input = document.getElementById("project")
   input.value=""
-  overview.setAttribute('data-id',id)
+  overview.setAttribute('project-id',id)
   project.textContent = name;
   project.className = "project";
   sideBar.appendChild(overview);
@@ -24,6 +24,7 @@ function makeTask(name,data,id){
   let biggest = document.createElement("div");
   biggest.className ="biggest"
   biggest.setAttribute('data-id',id)
+ 
 
    let first = document.createElement("div");
    first.className = "first"
@@ -47,12 +48,21 @@ function makeTask(name,data,id){
     deleter.appendChild(deleteBtn)
     second.appendChild(date)
     second.appendChild(deleter)
+    
+    let task = document.getElementById("task")
+  task.value=""
+      let due = document.getElementById("date")
+  due.value=""
+  let info = document.getElementById("info")
+  info.value=""
 
     
     biggest.appendChild(first)
     biggest.appendChild(second)
     content.appendChild(biggest)
 }
+
+
 
 function defaultScreen() {
   let content = document.getElementById("content")

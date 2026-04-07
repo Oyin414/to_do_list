@@ -234,3 +234,7 @@ overflow-y: scroll;
 .delete_btn:hover{
   cursor:pointer;
 }
+
+.inactive{
+    background-color: red;
+}
