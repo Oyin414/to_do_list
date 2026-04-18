@@ -89,5 +89,9 @@ function changeProject(name){
  mainTitle.textContent = name
 }
 
+function deleteBtn(container){
+container.remove()
+}
 
-export {makeProject,makeTask,changeProject,defaultScreen,displayTasks}
+
+export {makeProject,makeTask,changeProject,defaultScreen,displayTasks,deleteBtn}

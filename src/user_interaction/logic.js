@@ -1,4 +1,4 @@
-import { makeProject,makeTask,changeProject,defaultScreen,displayTasks} from "./display.js"
+import { makeProject,makeTask,changeProject,defaultScreen,displayTasks,deleteBtn} from "./display.js"
 import {addProject,removeProject,getProject,findProject} from "../data/project_manager.js"
 import { ListItems } from "../create/list.js"
 import { Project } from "../create/project.js"
@@ -42,9 +42,9 @@ projectBtn.addEventListener("click",function() {
   let projectName = document.getElementById("project").value
   let id = crypto.randomUUID()
   if(document.getElementById("project").validity.valueMissing){
-   alert("please enter Project Title")
+  return document.getElementById("project").reportValidity()
   }else{
-    const newProject = new Project(projectName,id)
+  const newProject = new Project(projectName,id)
   makeProject(projectName,id)
   addProject(newProject)
   }
@@ -80,43 +80,47 @@ projectBtn.addEventListener("click",function() {
    let dateError = document.getElementById("date")
    let taskError = document.getElementById("task")
 
-   if(dateError.validity.valueMissing && taskError.validity.valueMissing){
-    alert("Name and Date Missing")
-   }else if (dateError.validity.valueMissing){
-    alert("Please enter date")
+   if (dateError.validity.valueMissing){
+    dateError.reportValidity()
    }else if( taskError.validity.valueMissing){
-     alert("Please enter name")
+     taskError.reportValidity()
    }else{
     let task = new ListItems(name,priority,date,info,taskId)
        result.addListItem(task)
    makeTask(name,date,taskId)
    
    let biggest = document.querySelectorAll(".biggest")
+    let task_delete = document.querySelectorAll(".delete_btn")
 
    biggest.forEach(item => {
      if(item.hasAttribute('project-id') === false){
         item.setAttribute('project-id',result.id)
-    }
+    }} )
+
+    task_delete.forEach(item => {
+   item.addEventListener("click",function(){
+    let delete_container = item.parentNode.parentNode.parentNode
+    let delete_id = delete_container.getAttribute("data-id")
+    result.removeListItem(delete_id)
+    deleteBtn(delete_container)
+    console.log(result)
+   })
+   })
+   }
+
    
-   }
-  )
-   }
 
    console.log(getProject())
   })
 }
+/* */
 
-function taskInteractions() {
-  let deleter = document.querySelector(".delete")
-  deleter.addEventListener("click",function (){
-   
-    let biggest = document.querySelector(".biggest")
-    let id = biggest.getAttribute('data-id')
-
-  })
+async function taskDelete(){
+console.log("yay")
 }
 
 
 
 
-export{setUpForms,submitForm}
+
+export{setUpForms,submitForm,taskDelete}

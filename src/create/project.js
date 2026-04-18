@@ -16,7 +16,7 @@ class Project {
     return result
     }
     removeListItem(item){
-    let newList = this.list.filter(value => value.id !== item.id)
+    let newList = this.list.filter(listItems => listItems.id !== item)
     this.list = newList
     }
 
