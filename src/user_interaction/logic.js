@@ -1,4 +1,4 @@
-import { makeProject,makeTask,changeProject,defaultScreen,displayTasks,deleteBtn} from "./display.js"
+import { makeProject,makeTask,displayTasks,deleteBtn} from "./display.js"
 import {addProject,removeProject,getProject,findProject} from "../data/project_manager.js"
 import { ListItems } from "../create/list.js"
 import { Project } from "../create/project.js"
@@ -56,19 +56,47 @@ projectBtn.addEventListener("click",function() {
     item.addEventListener("click", function() {
         document.querySelector('.hide').style.display = "block";
         let dataId = item.getAttribute("project-id");
-        console.log(dataId)
         result = findProject(dataId);
-        changeProject(result.title);
         displayTasks(dataId)
         
         let section = item.hasChildNodes()
-       console.log(result)
     });
     item.classList.add("initialized");
 }
+
+  /*Delete projects */
+  let project_del = document.querySelectorAll(".del")
+   project_del.forEach(item => {
+    item.addEventListener("click",function(){
+      let project_cont = item.parentNode
+      let proj= project_cont.getAttribute("overview")
+      let proj_id = project_cont.getAttribute("project-id")
+       let biggest = document.querySelectorAll(".biggest")
+       if (result !== undefined){
+        if (result.list.length > 0){
+          result.list.forEach(item => {
+          let specialId = item.id
+          result.removeListItem(specialId)
+          biggest.forEach(item => {
+            if (item.getAttribute("project-id") === proj_id){
+               deleteBtn(item)
+            }
+          })
+        })
+        }
+       
+      }
+      removeProject(proj_id)
+      deleteBtn(project_cont)
+     
+      console.log(getProject())
+    })
    })
 
-    /* Create Taska */
+   })
+
+ 
+    /* Create Task */
 
     taskBtn.addEventListener("click",function (){
     event.preventDefault();
@@ -100,27 +128,19 @@ projectBtn.addEventListener("click",function() {
     task_delete.forEach(item => {
    item.addEventListener("click",function(){
     let delete_container = item.parentNode.parentNode.parentNode
+    let delete_projId = delete_container.getAttribute("project-id")
     let delete_id = delete_container.getAttribute("data-id")
     result.removeListItem(delete_id)
     deleteBtn(delete_container)
-    console.log(result)
    })
    })
    }
-
-   
-
-   console.log(getProject())
   })
 }
-/* */
-
-async function taskDelete(){
-console.log("yay")
-}
 
 
 
 
 
-export{setUpForms,submitForm,taskDelete}
+
+export{setUpForms,submitForm}

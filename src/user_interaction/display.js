@@ -80,13 +80,18 @@ function displayTasks(id) {
 
 
 function defaultScreen() {
-  let content = document.getElementById("content")
+  let content =  document.querySelector(".main_title")
   content.textContent = ""
 }
 
 function changeProject(name){
   let mainTitle = document.querySelector(".main_title")
- mainTitle.textContent = name
+  if (name === undefined){
+    return mainTitle.textContent = "Add a Project..."
+  }else{
+   return  mainTitle.textContent= name
+  }
+ 
 }
 
 function deleteBtn(container){
